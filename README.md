@@ -16,6 +16,7 @@ The Py-JSON-Dropper features:
 
 <h3>Installation</h3>
 To use this tool, make sure you have the required dependencies installed:
+
 Note: It is not a must step, because there is an installation process in the dropper.
 
   ```shell
