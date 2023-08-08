@@ -23,8 +23,7 @@ pip install requests
 - Run the creator.py script to create the JSON file:
 ```bash
 python3 creator.py
-```
-Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
+- Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
 - Upload the JSON to the API editor or create a website API.
 - Add this script for the main dropper script that will run before the execution of the dropped malware.
 - Run the dropper script on the target side and it will decode the JSON API, extract malware bodies, and insert those bodies to files with the index number of malware.
