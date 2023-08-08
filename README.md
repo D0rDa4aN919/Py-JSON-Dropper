@@ -41,7 +41,7 @@ Note: It is not a must step, because there is an installation process in the dro
 ![creator process](pics/dropper_process.jpg)
 <h2 style="text-align:center;">License</h2>
 
-This project is licensed under the MIT License - see the ![LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 <h2 style="text-align:center;">Author</h2>
 - [D0rDa4aN919](https://github.com/D0rDa4aN919)
