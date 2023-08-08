@@ -6,6 +6,7 @@ This tool is intended for educational and ethical purposes only. It is important
 This is the POC of the JSON format dropper for defense evasion.
 
 <h2 style="text-align:center;">Features</h2>
+
 - Encode malware bodies into base32 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
 - Creates a JSON file that includes the encoded malware bodies and file names.
