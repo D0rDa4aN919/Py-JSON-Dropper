@@ -17,14 +17,14 @@ To use this tool, make sure you have the required dependencies installed:
 Note: It is not a must step, because there is an installation process in the dropper.
 
   ```shell
-pip install requests
+  pip install requests
   ```
 <h3>Usage</h3>
 
 - Run the creator.py script to create the JSON file:
 
   ```shell
-python3 creator.py
+  python3 creator.py
   ```
 
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
