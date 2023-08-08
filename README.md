@@ -29,6 +29,7 @@ Note: It is not a must step, because there is an installation process in the dro
   ```shell
   python3 creator.py
   ```
+[creator process](pics/create_json_process.jpg)
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
 - Upload the JSON to the API editor or create a website API.
 - Add this script for the main dropper script that will run before the execution of the dropped malware.
