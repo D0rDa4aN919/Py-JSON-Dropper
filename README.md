@@ -23,7 +23,6 @@ pip install requests
 
 - Run the creator.py script to create the JSON file:
 
-
   ```shell
 python3 creator.py
   ```
