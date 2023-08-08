@@ -7,6 +7,7 @@ This is the POC of the JSON format dropper for defense evasion.
 
 <h2 style="text-align:center;">Features</h2>
 
+The Py_Json_Dropper features:
 - Encode malware bodies into base32 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
 - Creates a JSON file that includes the encoded malware bodies and file names.
