@@ -45,6 +45,21 @@ Note: It is not a must step, because there is an installation process in the dro
 
 ![creator process](pics/compere.jpg)
 
+<h2 align="center"">Defense Evasion - show case</h2>
+The tool is checked on two EDR's (Sophos Home and Windows Defender) and [new uknown fetch malware](https://bazaar.abuse.ch/sample/39effc8ad793805f7a5558b804d72b01de87db3a89657c91d5508612c15d3761/).
+
+- The process in the target side:
+
+[Running script example](pics/evasion.jpg)
+
+- An example: (Sophos Home)
+
+[Sophos Home example](pics/evasion_sophos_home.jpg)
+
+- An example: (Windows Defender)
+
+[Windows Defender example](pics/evasion_defender.jpg)
+
 <h2 align="center"">License</h2>
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
