@@ -42,6 +42,7 @@ Note: It is not a must step, because there is an installation process in the dro
 ![creator process](pics/dropper_process.jpg)
 
 - You could compere between the old file and new file to check the download process working
+
 ![creator process](pics/compere.jpg)
 
 <h2 align="center"">License</h2>
