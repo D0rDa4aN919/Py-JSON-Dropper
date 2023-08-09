@@ -1,18 +1,18 @@
-<h1 style="text-align:center;">Py Json Dropper</h1>
+<h1 align="center">Py Json Dropper</h1>
 The Py-JSON-Dropper is intended to make it easier to create and disseminate JSON-formatted malware droppers. A dropper is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base32-encoded malware bodies and file names that can later be used to spread malware using API.
 
-<h2 style="text-align:center;">Important Note</h2>
+<h2 align="center">Important Note</h2>
 This tool is intended for educational and ethical purposes only. It is important to follow legal and ethical guidelines when using and distributing software. Unauthorized use of malware or any malicious activities is strictly prohibited and can have serious legal consequences.
 This is the POC of the JSON format dropper for defense evasion.
 
-<h2 style="text-align:center;">Features</h2>
+<h2 align="center"">Features</h2>
 
 The Py-JSON-Dropper features:
 - Encode malware bodies into base32 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
 - Creates a JSON file that includes the encoded malware bodies and file names.
 
-<h2 style="text-align:center;">Installation and Usage</h2>
+<h2 align="center"">Installation and Usage</h2>
 
 <h3>Installation</h3>
 To use this tool, make sure you have the required dependencies installed:
@@ -38,15 +38,19 @@ Note: It is not a must step, because there is an installation process in the dro
   ```shell
   python3 dropper.py
   ```
+
 ![creator process](pics/dropper_process.jpg)
-<h2 style="text-align:center;">License</h2>
+
+- You could compere between the old file and new file to check the download process working
+![creator process](pics/compere.jpg)
+<h2 align="center"">License</h2>
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<h2 style="text-align:center;">Author</h2>
+<h2 align="center"Author</h2>
 - [D0rDa4aN919](https://github.com/D0rDa4aN919)
 
-<h2 style="text-align:center;">Acknowledgments</h2>
+<h2 align="center">Acknowledgments</h2>
 The tool was developed to demonstrate how to produce and disseminate malware droppers in a controlled setting. It is not meant to support or facilitate any nefarious or unlawful activity.
 
 - JSON: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
