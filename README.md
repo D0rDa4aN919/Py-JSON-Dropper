@@ -49,6 +49,7 @@ Note: It is not a must step, because there is an installation process in the dro
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 <h2 align="center">Author</h2>
+
 - [D0rDa4aN919](https://github.com/D0rDa4aN919)
 
 <h2 align="center">Acknowledgments</h2>
