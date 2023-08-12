@@ -1,6 +1,7 @@
 ##############################################################################
 # Offline Py-JSON-Dropper - create_json - Python Script
-# Description: A POC for JSON dropper(drop by fetching API JSON). It will ask for malware path and create a new json file with encode malware bodies.
+# Description: A POC for JSON dropper(drop by fetching API JSON). It will ask for malware path and create a new json file with encode malware bodies, 
+# for final it will execute the malware based on the extention(ps1/sh/java/python) using in memory execution.
 # Author: Dor Dahan
 # License: MIT (See details in the LICENSE file or at the end of this script)
 ##############################################################################
@@ -29,7 +30,7 @@ class Creator:
         elif "\\" in binary_file:
             binary_file = binary_file.split("\\")[-1]
         self.names.append(binary_file)
-        encoded = base64.b32encode(text)
+        encoded = base64.b64encode(text)
         encoded = encoded.decode('utf-8')
         self.final_json[binary_file.split(".")[0]] = {"body": encoded, "fullName": binary_file}
 
@@ -39,6 +40,7 @@ class Creator:
         :param file_name: The json file name
         :return: None
         """
+
         with open(file_name, "w") as file:
             json.dump(self.final_json, file, indent=4)
 
@@ -46,7 +48,7 @@ class Creator:
 def main():
     """
     The user-interface and main function, it will get the malware names and
-    get them to base32 encode of the malware body, for final insert the dict to json file
+    get them to base64 encode of the malware body, for final insert the dict to json file
     :return: None
     """
     json_file = Creator()
@@ -88,7 +90,7 @@ if __name__ == '__main__':
 # copies or substantial portions of the Software.
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
