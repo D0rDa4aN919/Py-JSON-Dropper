@@ -33,7 +33,7 @@ To use this tool, will require the malware to be written in Bash, Power-Shell, J
   ```shell
   python3 create_json.py
   ```
-![creator process](pics/create_json_process.jpg)
+![creator process](pics/json_create.jpg)
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
 - Upload the JSON to the API editor or create a website API.
 - Add this script for the main dropper script that will run before the execution of the dropped malware.
@@ -42,31 +42,9 @@ To use this tool, will require the malware to be written in Bash, Power-Shell, J
   ```shell
   python3 dropper.py
   ```
+![creator process](pics/execution.jpg)
 
-![creator process](pics/dropper_process.jpg)
-
-- You could compare between the old file and the new file to check the download process working
-
-![creator process](pics/compere.jpg)
-
-<h2 align="center"">Defense Evasion - show case</h2>
-The tool is checked on two EDRs (Sophos Home and Windows Defender) and new unknown fetch malware.
-
-[New uknown fetch malware](https://bazaar.abuse.ch/sample/39effc8ad793805f7a5558b804d72b01de87db3a89657c91d5508612c15d3761/)
-
-- The process on the target side:
-
-![Running script example](pics/evasion.jpg)
-
-- An example: (Sophos Home)
-
-![Sophos Home example](pics/evasion_sophos_home.jpg)
-
-- An example: (Windows Defender)
-
-![Windows Defender example](pics/evasion_defender.jpg)
-
-Note: You can add an encryption stage to the script, it will encrypt the binary text before the JSON insert and could add to the JSON the decryption key. Using this an attacker can add another layer of protection to the malware and decrypt the malware body before it executes.
+Note: In the example, can see a reverse shell prcoess that run via the dropper.
 
 <h2 align="center"">License</h2>
 
