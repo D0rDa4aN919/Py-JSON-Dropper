@@ -36,7 +36,7 @@ To use this tool, will require the malware to be written in Bash, Power-Shell, J
 ![creator process](pics/json_create.jpg)
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
 - Upload the JSON to the API editor or create a website API.
-- Add this API URL for the main dropper script that will run before the execution of the dropped malware.
+- Add this API URL to the dropper script.
 - Run the dropper:
   ```shell
   sudo python3 dropper.py
