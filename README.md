@@ -1,5 +1,5 @@
 <h1 align="center">Py Json Dropper</h1>
-The Py-JSON-Dropper is intended to make it easier to create and disseminate JSON-formatted malware droppers. A dropper is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base32-encoded malware bodies and file names that can later be used to spread malware using API. After achiving the malware body from the API, it will use the file extention for choose the in memory execution.
+The Py-JSON-Dropper is intended to make it easier to create and disseminate JSON-formatted malware droppers. A dropper is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base64-encoded malware bodies and file names that can later be used to spread malware using API. After achiving the malware body from the API, it will use the file extention for choose the in memory execution.
 
 <h2 align="center">Important Note</h2>
 This tool is intended for educational and ethical purposes only. It is important to follow legal and ethical guidelines when using and distributing software. The unauthorized use of malware or any malicious activities is strictly prohibited and can have serious legal consequences.
@@ -8,9 +8,11 @@ This is the POC of the JSON format dropper for defense evasion.
 <h2 align="center"">Features</h2>
 
 The Py-JSON-Dropper features:
-- Encode malware bodies into base32 and store them in a JSON format.
+- Encode malware bodies into base64 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
 - Creates a JSON file that includes the encoded malware bodies and file names.
+- Check the extension type of the code for the execution.
+- Execute the script via in-memory execution.
 
 <h2 align="center"">Installation and Usage</h2>
 
@@ -25,7 +27,7 @@ Note: It is not a must step, because there is an installation process in the dro
   
 <h3>Usage</h3>
 
-To using this tool, it will require from the malware to be writen in Bash, Power-Shell, Java or Python.
+To use this tool, will require the malware to be written in Bash, Power-Shell, Java, or Python.
 
 - Run the creator.py script to create the JSON file:
   ```shell
