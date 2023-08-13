@@ -2,6 +2,8 @@
 The Py-JSON-Dropper is a POC for JSON-format dropper, and intended to make it easier to create and disseminate JSON-formatted malware droppers. A dropper is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base64-encoded malware bodies and file names that can later be used to spread malware using API. After achiving the malware body from the API, it will use the file extention for choose the in memory execution type.
 
 <br>
+<br>
+<br>
 The POC is to demonstrate the option to build a dropper via JSON format and drop malware using the method, focusing on the concept of JSON dropper and less the execution process. Not for malicious uses.
 
 <h2 align="center">Important Note</h2>
