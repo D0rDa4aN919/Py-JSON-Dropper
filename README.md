@@ -33,7 +33,7 @@ Note: It is not a must step, because there is an installation process in the dro
 <h3>Usage</h3>
 
 To use this tool, will require the malware to be written in Bash, Power-Shell, Java, or Python.
-
+Note: It can run exe files but without EDR/AV, due the need to save the exe file (but it is in develop)
 - Run the creator.py script to create the JSON file:
   ```shell
   python3 create_json.py
