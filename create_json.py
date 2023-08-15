@@ -29,9 +29,10 @@ class Creator:
         elif "\\" in binary_file:
             binary_file = binary_file.split("\\")[-1]
         self.names.append(binary_file)
-        encoded = base64.b32encode(text)
+        encoded = base64.b64encode(text)
         encoded = encoded.decode('utf-8')
         self.final_json[binary_file.split(".")[0]] = {"body": encoded, "fullName": binary_file}
+
 
     def save_json(self, file_name:str) -> None:
         """
@@ -46,7 +47,7 @@ class Creator:
 def main():
     """
     The user-interface and main function, it will get the malware names and
-    get them to base32 encode of the malware body, for final insert the dict to json file
+    get them to base64 encode of the malware body, for final insert the dict to json file
     :return: None
     """
     json_file = Creator()
