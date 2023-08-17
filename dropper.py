@@ -130,9 +130,8 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
                     try:
                         # Execute the temporary file
                         subprocess.run([temp_file_path], shell=True, check=True)
-                        print("Binary executed successfully!")
-                    except subprocess.CalledProcessError as e:
-                        print(f"Error: Binary execution failed with return code {e.returncode}")
+                    except subprocess.CalledProcessError:
+                        pass
                 finally:
                     # Clean up: delete the temporary file
                     try:
@@ -177,6 +176,8 @@ def main():
     # Looping throw the keys in the json format
     for index, key in enumerate(response):
         # Create new file name via the index and file name
+        print(key)
+        print(response[key]["fullName"])
         filename = response[key]["fullName"].split(".")
         extension = filename[-1]
 
