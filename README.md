@@ -12,8 +12,11 @@ This tool is intended for educational and ethical purposes only. It is important
 This is the POC of the JSON format dropper for defense evasion.
 
 <h2 align="center">Features</h2>
+
 <h3s>The Py-JSON-Dropper features:</h3>
+
 <h4>create_json.py</h4>
+
 - Execute create_json.py from the attacker side.
 - Encode malware bodies into base64 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
@@ -21,6 +24,7 @@ This is the POC of the JSON format dropper for defense evasion.
 - In local mode: It will create Flask API/Download server.
 - In remote mode(default): It will create new API interface in npoint.io and request to enter the json text.
 - Add the new url to the dropper.py file and create with it new dropper_final.py.
+
 <h3>dropper_final.py</h3>
 - Send and execute dropper_final.py from the traget machine.
 - Check the extension type of the code for the execution.
