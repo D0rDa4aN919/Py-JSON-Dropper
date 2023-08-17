@@ -21,7 +21,7 @@ This is the POC of the JSON format dropper for defense evasion.
 
 <h4>create_json.py</h4>
 
-- Execute create_json.py from the attacker side.
+- Note: Execute create_json.py from the attacker side.
 - Encode malware bodies into base64 and store them in a JSON format.
 - Simple user interface for providing malware file paths.
 - Creates a JSON file that includes the encoded malware bodies and file names.
@@ -31,7 +31,7 @@ This is the POC of the JSON format dropper for defense evasion.
 
 <h3>dropper_final.py</h3>
 
-- Send and execute dropper_final.py from the traget machine.
+- Note: Send and execute dropper_final.py from the traget machine.
 - Check the extension type of the code for the execution.
 - Execute the script.
 
