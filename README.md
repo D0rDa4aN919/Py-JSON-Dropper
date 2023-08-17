@@ -51,8 +51,11 @@ To use this tool, make sure you have the required dependencies installed:
 
 To use this tool, will require the malware to be written in Bash, Power-Shell, Java, or Python or exectuable files.
 In the attacker side script (create_json.py) have to main function local or remote.
+<br>
 Note: It can run exe files but without EDR/AV, due the need to save the exe file (but it is in develop)
-
+<br>
+Note: In the example, can see a reverse shell prcoess that run via the dropper(On Windows machine).
+<br>
 - Run the creator.py script to create the JSON file:
   ```shell
   python3 create_json.py
@@ -85,7 +88,9 @@ Note: It can run exe files but without EDR/AV, due the need to save the exe file
   ```
 ![creator process](pics/dropper_process.jpg)
 
-Note: In the example, can see a reverse shell prcoess that run via the dropper(On linux machine).
+- In the final stage the attacker get the shell.
+
+![Reverse shell](pics/shell.jpg)
 
 <h2 align="center">License</h2>
 
