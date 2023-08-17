@@ -4,7 +4,6 @@ The Py-JSON-Dropper is a POC for JSON-format dropper, and intended to make it ea
 
 <br>
 <br>
-<br>
 The POC is to demonstrate the option to build a dropper via JSON format and drop malware using this method, focusing on the concept of JSON dropper and less the in-memory execution process due to the malicious uses.
 
 <h2 align="center">Important Note</h2>
