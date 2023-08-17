@@ -118,3 +118,4 @@ The tool was developed to demonstrate how to produce and disseminate malware dro
 - [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 - [Dropper](https://medium.com/@dordaha491n/the-stealthy-evolution-of-malware-droppers-a-closer-look-cb269722d887)
 - [RastFul API](https://docs.github.com/en/rest?apiVersion=2022-11-28)
+- [JSON-based dropper article](https://medium.com/@dordaha491n/malware-dropping-techniques-using-json-format-a-stealthy-approach-afbf8c00023d)
