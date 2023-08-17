@@ -4,10 +4,10 @@ The Py-JSON-Dropper is a POC for JSON-format dropper, and intended to make it ea
 <br><br>
 The POC is to demonstrate the option to build a dropper via JSON format and drop malware using this method, focusing on the concept of JSON dropper and less the in-memory execution process due to the malicious uses.
 <br><br>
-Local mode:<br>
+<h4>Local mode:</h4><br>
 ![Local mode](pics/local_diagram.jpg)
 <br><br>
-Remote mode:<br>
+<h4>Remote mode:</h4>h4><br>
 ![Remote mode](pics/remote_diagram.jpg)
 <br>
 
@@ -73,11 +73,12 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 - <h4>Remote mode</h4>
 
   - Create new dropper with the url in dropper_final.py
-  - It will create a new API lin in npoint.io website, and the attcker will need to up date the link with the JSON file.
-
-  ![Remote Mode](pics/remote_json_create.jpg)
+  - It will create a new API link in npoint.io website, and the attcker will need to update the link with the JSON file.
+  - Need to find the way to transfer the new dropper to the target.
   
-- Run the dropper:
+  ![Remote Mode](pics/remote_json_create.jpg)
+
+- Run the dropper_final.py in the target side:
   ```shell
   # Linux:
   python dropper_final.py
@@ -89,6 +90,16 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 - In the final stage the attacker get the shell.
 
 ![Reverse shell](pics/shell.jpg)
+
+<h2 align="center">Demonstration</h2>
+
+<h3>Local Mode:</h3>
+
+![Local demonstration](pics/local_Demonstration.gif)
+
+<h3>Remote Mode:</h3>
+
+![Remote demonstration](pics/remote_Demonstration.gif)
 
 <h2 align="center">License</h2>
 
