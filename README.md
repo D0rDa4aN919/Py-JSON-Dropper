@@ -62,21 +62,21 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
   ```
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
 
-<h4>Local mode</h4>
+- <h4>Local mode</h4>
 
-&#9; - It will create a Flask website, and upload the JSON file.
+  - It will create a Flask website, and upload the JSON file.
   - Create new dropper with the url in dropper_final.py
   - Set a download page in the Flask website to download the dropper_final.py
   
   ![creator process](pics/local_json_create.jpg)
 
-<h4>Remote mode</h4>
+- <h4>Remote mode</h4>
 
   - Create new dropper with the url in dropper_final.py
   - It will create a new API lin in npoint.io website, and the attcker will need to up date the link with the JSON file.
 
   ![Remote Mode](pics/remote_json_create.jpg)
-
+  
 - Run the dropper:
   ```shell
   # Linux:
