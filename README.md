@@ -99,7 +99,7 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 ![Local demonstration](pics/local_Demonstration.gif)
 
-[![Local demonstration]()](pics/local_Demonstration.mp4)
+[![Local demonstration](pics/remote_json_create.jpg)](pics/local_Demonstration.mp4)
 
 <h3>Remote Mode:</h3>
 
