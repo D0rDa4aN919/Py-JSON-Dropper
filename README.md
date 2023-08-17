@@ -68,14 +68,22 @@ Note: It can run exe files but without EDR/AV, due the need to save the exe file
 ![creator process](pics/local_json_create.jpg)
 
 <h4>Remote mode</h4>
-![Local Mode]()
+
+- It will create a new API lin in npoint.io website, and the attker will need to up date the link with the JSON file.
+- Create new dropper with the url in dropper_final.py
+- Set a download page in the Flask website to download the dropper_final.py
+
+![Remote Mode](pics/remote_json_create.jpg)
 
 - Add this API URL to the dropper script.
 - Run the dropper:
   ```shell
-  sudo python3 dropper.py
+  # Linux:
+  python dropper_final.py
+  # Windows:
+  py dropper_final.py
   ```
-![creator process](pics/execution.jpg)
+![creator process](pics/dropper_process.jpg)
 
 Note: In the example, can see a reverse shell prcoess that run via the dropper(On linux machine).
 
