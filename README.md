@@ -116,5 +116,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 The tool was developed to demonstrate how to produce and disseminate malware droppers in a controlled setting. It is not meant to support or facilitate any nefarious or unlawful activity.
 
 - [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
-- [Dropper](https://encyclopedia.kaspersky.com/glossary/trojan-droppers/)
+- [Dropper][(https://encyclopedia.kaspersky.com/glossary/trojan-droppers/](https://medium.com/@dordaha491n/the-stealthy-evolution-of-malware-droppers-a-closer-look-cb269722d887)https://medium.com/@dordaha491n/the-stealthy-evolution-of-malware-droppers-a-closer-look-cb269722d887)
 - [RastFul API](https://docs.github.com/en/rest?apiVersion=2022-11-28)
