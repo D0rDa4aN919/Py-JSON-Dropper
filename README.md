@@ -42,6 +42,7 @@ To use this tool, make sure you have the required dependencies installed:
   ```shell
   python setup.py
   ```
+![Execute script](pics/setup.jpg)
   
 <h3>Usage</h3>
 
