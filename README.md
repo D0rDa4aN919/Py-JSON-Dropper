@@ -103,6 +103,7 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 ![Remote demonstration](pics/remote_Demonstration.gif)
 
+Note: The video are in pics directory.
 <h2 align="center">License</h2>
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
