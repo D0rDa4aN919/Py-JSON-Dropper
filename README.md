@@ -23,9 +23,10 @@ This is the POC of the JSON format dropper for defense evasion.
 - Creates a JSON file that includes the encoded malware bodies and file names.
 - In local mode: It will create Flask API/Download server.
 - In remote mode(default): It will create new API interface in npoint.io and request to enter the json text.
-- Add the new url to the dropper.py file and create with it new dropper_final.py.
+- Add the new url to the dropper.py file and create with new dropper_final.py file.
 
 <h3>dropper_final.py</h3>
+
 - Send and execute dropper_final.py from the traget machine.
 - Check the extension type of the code for the execution.
 - Execute the script.
