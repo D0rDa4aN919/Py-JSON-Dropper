@@ -53,13 +53,14 @@ To use this tool, will require the malware to be written in Bash, Power-Shell, J
 In the attacker side script (create_json.py) have to main function local or remote.
 Note: It can run exe files but without EDR/AV, due the need to save the exe file (but it is in develop)
 
-<h4>Local mode</h4>
-
 - Run the creator.py script to create the JSON file:
   ```shell
   python3 create_json.py
   ```
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
+
+<h4>Local mode</h4>
+
 - It will create a Flask website, and upload the JSON file.
 - Create new dropper with the url in dropper_final.py
 - Set a download page in the Flask website to download the dropper_final.py
