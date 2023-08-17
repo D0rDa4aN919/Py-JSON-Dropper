@@ -99,8 +99,6 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 ![Local demonstration](pics/local_Demonstration.gif)
 
-[![Local demonstration](pics/blank.png)](pics/local_Demonstration.mp4)
-
 <h3>Remote Mode:</h3>
 
 ![Remote demonstration](pics/remote_Demonstration.gif)
