@@ -64,7 +64,7 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 <h4>Local mode</h4>
 
-  - It will create a Flask website, and upload the JSON file.
+&#9; - It will create a Flask website, and upload the JSON file.
   - Create new dropper with the url in dropper_final.py
   - Set a download page in the Flask website to download the dropper_final.py
   
