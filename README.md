@@ -34,16 +34,13 @@ This is the POC of the JSON format dropper for defense evasion.
 
 <h3>Installation</h3>
 To use this tool, make sure you have the required dependencies installed:
-
-Note: It is not a must step, because there is an installation process in the dropper.
-
   ```shell
-  pip install requests
+  python setup.py
   ```
   
 <h3>Usage</h3>
 
-To use this tool, will require the malware to be written in Bash, Power-Shell, Java, or Python.
+To use this tool, will require the malware to be written in Bash, Power-Shell, Java, or Python or exectuable files.
 Note: It can run exe files but without EDR/AV, due the need to save the exe file (but it is in develop)
 - Run the creator.py script to create the JSON file:
   ```shell
@@ -51,7 +48,15 @@ Note: It can run exe files but without EDR/AV, due the need to save the exe file
   ```
 ![creator process](pics/json_create.jpg)
 - Enter the paths to your malware files by following the prompts. When you're finished, you'll be asked to give the JSON file a name. The malware's bodies and file names will be encoded in the final JSON file.
-- Upload the JSON to the API editor or create a website API.
+
+<h4>Local mode</h4>
+
+- It will create a Flask website, and upload the JSON file.
+- Create new dropper with the url in dropper_final.py
+- Set a download page in the Flask website to download the dropper_final.py
+
+![Local Mode]()
+
 - Add this API URL to the dropper script.
 - Run the dropper:
   ```shell
