@@ -8,7 +8,7 @@ The POC is to demonstrate the option to build a dropper via JSON format and drop
 
 ![Local mode](pics/local_diagram.jpg)
 <br><br>
-<h4>Remote mode:</h4>h4><br>
+<h4>Remote mode:</h4><br>
 
 ![Remote mode](pics/remote_diagram.jpg)
 <br>
