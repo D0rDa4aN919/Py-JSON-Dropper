@@ -38,10 +38,13 @@ This is the POC of the JSON format dropper for defense evasion.
 <h2 align="center">Installation and Usage</h2>
 
 <h3>Installation</h3>
+
 To use this tool, make sure you have the required dependencies installed:
+
   ```shell
   python setup.py
   ```
+
 ![Execute script](pics/setup.jpg)
   
 <h3>Usage</h3>
