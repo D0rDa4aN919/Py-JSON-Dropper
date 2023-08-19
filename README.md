@@ -99,7 +99,7 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 - The videos of the demnostration are in pics directory.
 - The tool could bypass the defender using obfuscation of Power-shell scripts and python(it could be with exe and java with the right code edit).
-- 
+ 
 <br>
 
 ![](pics/defender_bypass.jpg)
