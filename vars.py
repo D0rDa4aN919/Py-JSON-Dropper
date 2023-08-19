@@ -22,6 +22,7 @@ else:
     print(f"{color['RED']}Not supported on this OS system...{color['RESET']}")
     exit(1)
 
+
 def win_admin() -> bool:
     """
     Check if the user is administrator or regular user (Windows system only)
@@ -33,13 +34,20 @@ def win_admin() -> bool:
         return False
 
 
-def lin_user() -> bool:
+def lin_user(num: int = 0) -> bool:
     """
     Check if the user is root or regular user (Linux system only)
+    :param num: integer number for control process
     :return: True/False.
     """
     from getpass import getuser
-    if getuser() == "root":
-        return True
-    else:
-        return False
+    if num == 1:
+        if getuser() == "root":
+            return False
+        else:
+            return True
+    elif num == 0:
+        if getuser() == "root":
+            return True
+        else:
+            return False
