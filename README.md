@@ -95,6 +95,13 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 <h2 align="center">Demonstration</h2>
 
+<h3>Notes:</h3>
+- The videos of the demnostration are in pics directory.
+- The tool could bypass the defender using obfuscation of Power-shell scripts and python(it could be with exe and java with the right code edit).
+<br>
+
+![](pics/defender_bypass.jpg)
+
 <h3>Local Mode:</h3>
 
 ![Local demonstration](pics/local_Demonstration.gif)
@@ -102,13 +109,6 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 <h3>Remote Mode:</h3>
 
 ![Remote demonstration](pics/remote_Demonstration.gif)
-
-Notes:
-- The videos of the demnostration are in pics directory.
-- The tool could bypass the defender using obfuscation of Power-shell scripts and python(it could be with exe and java with the right code edit).
-<br>
-
-![](pics/defender_bypass.jpg)
 
 <h2 align="center">License</h2>
 
