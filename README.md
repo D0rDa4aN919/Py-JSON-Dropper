@@ -102,13 +102,15 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
  
 <br>
 
+<h3>Defender bypass:</h3>
+
 ![](pics/defender_bypass.jpg)
 
-<h3>Local Mode:</h3>
+<h4>Local Mode:</h4>
 
 ![Local demonstration](pics/local_Demonstration.gif)
 
-<h3>Remote Mode:</h3>
+<h4>Remote Mode:</h4>
 
 ![Remote demonstration](pics/remote_Demonstration.gif)
 
