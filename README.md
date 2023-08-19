@@ -1,6 +1,6 @@
 <h1 align="center">Py Json Dropper</h1>
 
-The Py-JSON-Dropper is a POC for JSON-format dropper, and intended to make it easier to create and disseminate JSON-formatted malware droppers. A [dropper](https://medium.com/@dordaha491n/the-stealthy-evolution-of-malware-droppers-a-closer-look-cb269722d887) is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base64-encoded malware bodies and file names and establish an API interface in local/remote options, that can later be used to spread malware using API. After achiving the malware body from the API, it will use the file extention for choose the in memory execution type.
+The Py-JSON-Dropper is a POC for JSON-format dropper, and intended to make it easier to create and disseminate JSON-formatted malware droppers. A [dropper](https://medium.com/@dordaha491n/the-stealthy-evolution-of-malware-droppers-a-closer-look-cb269722d887) is a little program created to install and run additional harmful malware on a target machine. The program aids in producing a JSON file that contains base64-encoded malware bodies and file names and establishes an API interface in local/remote options, that can later be used to spread malware using API. After achieving the malware body from the API, it will use the file extension to choose the in-memory execution type(for Power-Shell, Jave, and Python) pr execution(for regular execution of executable).
 <br><br>
 The POC is to demonstrate the option to build a dropper via JSON format and drop malware using this method, focusing on the concept of JSON dropper and less the in-memory execution process due to the malicious uses.
 <br><br>
@@ -105,7 +105,7 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 Notes:
 - The videos of the demnostration are in pics directory.
-- The tool could bypass the defender using obfuscation of Power-shell scripts and python(and could be with exe and java with the right edit).
+- The tool could bypass the defender using obfuscation of Power-shell scripts and python(it could be with exe and java with the right code edit).
 <br>
 
 ![](pics/defender_bypass.jpg)
