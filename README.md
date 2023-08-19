@@ -103,7 +103,13 @@ Note: In the example, can see a reverse shell prcoess that run via the dropper(O
 
 ![Remote demonstration](pics/remote_Demonstration.gif)
 
-Note: The videos of the demnostration are in pics directory.
+Notes:
+- The videos of the demnostration are in pics directory.
+- The tool could bypass the defender using obfuscation of Power-shell scripts and python(and could be with exe and java with the right edit).
+<br>
+
+![](pics/defender_bypass.jpg)
+
 <h2 align="center">License</h2>
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
